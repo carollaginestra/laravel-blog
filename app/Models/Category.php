@@ -7,15 +7,22 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
-        'name', 'url', 'image', 'description'
+        'name', 'url', 'image', 'description',
     ];
 
-    public function rules() {
+
+    public function rules(){
         return [
-            'name' => 'required|min:3|max:100',
-            'url'  => 'required|min:3|max:100',
-            'image' => 'image',
-            'description' => 'required'
+            'name'        => 'required|min:3|max:100',
+            'description' => 'required|min:3|max:1000',
         ];
+    }
+    
+     /**
+     * Retornar todos os posts do usuário./
+     */
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
     }
 }
