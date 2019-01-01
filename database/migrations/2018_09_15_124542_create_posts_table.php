@@ -21,10 +21,12 @@ class CreatePostsTable extends Migration
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('title', 250);
             $table->text('description');
+            $table->string('image', 100);
+            $table->string('url', 100);
             $table->date('date');
             $table->time('hour');
             $table->boolean('featured')->default(false);
-            $table->enum('status', ['A', 'R'])->default('A')->comment('A-> Ativo postado, R-> Rascunho, não postado');
+            $table->enum('status', ['Ativo', 'Inativo'])->default('Ativo')->comment('Ativo-> ativo, Inativo-> inativo');
             $table->timestamps();
         });
     }
