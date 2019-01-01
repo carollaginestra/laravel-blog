@@ -1,35 +1,37 @@
+<?php use App\Models\Category; ?>
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1,
+				user-scalable=no">
 		<title>Blog WebDevAlfa</title>
 
 		<!--Bootstrap-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-		<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700" rel="stylesheet">
+		<!--CSS Person-->
+		<!-- {{url('admin/css/webdevalfa.css')}} -->
+		<link rel="stylesheet" href="{{url('css/webdevalfa.css')}}">
 
 		<!--CSS Person-->
-		<link rel="stylesheet" href="css/webdevalfa.css">
+		<link rel="stylesheet" href="{{url('css/webdevalfa-reset.css')}}">
 
 		<!--CSS Person-->
-		<link rel="stylesheet" href="css/webdevalfa-reset.css">
-
-		<!--CSS Person-->
-		<link rel="stylesheet" href="css/webdevalfa-responsive.css">
-	
-
+		<link rel="stylesheet" href="{{url('css/webdevalfa-responsive.css')}}">
 
 		<!--Favicon-->
-		<link rel="icon" type="image/png" href="imgs/favicon.png">
+		<link rel="icon" type="image/png" href="{{url('imgs/favicon.png')}}">
+
+		<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
 	</head>
 <body>
 	
 	<header class="top">
 		<div class="container">
 			<div class="logo col-md-6">
-				<a href="?pg=home">
-					<img src="imgs/logo-webdevalfa.png" alt="WebDevAlfa" class="logo">
+				<a href="{{url('/')}}">
+					<img src="{{url('imgs/logo-webdevalfa.png')}}" alt="WebDevAlfa" class="logo">
 				</a>
 			</div>
 
@@ -59,21 +61,21 @@
 
           <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li><a href="/">Home</a></li>
+              <li><a href="{{url('/')}}">Home</a></li>
 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Categorias <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="/categoria">PHP</a></li>
-                  <li><a href="/categoria">JavaScript</a></li>
-                  <li><a href="/categoria">jQuery</a></li>
-                  <li><a href="/categoria">Ajax</a></li>
-                  <li><a href="/categoria">SEO</a></li>
+									@forelse(Category::all() as $key)
+                  	<li><a href="{{ url('categoria/'.$key->id) }}">{{ $key->name }}</a></li>
+                  	@empty
+                  		<li>...</li>
+                  	@endforelse
                 </ul>
               </li>
 
-              <li><a href="/empresa">Empresa</a></li>
-              <li><a href="/contato">Contato</a></li>
+              <li><a href="{{url('empresa')}}">Empresa</a></li>
+              <li><a href="{{url('contato')}}">Contato</a></li>
               
             </ul>
 
@@ -95,7 +97,7 @@
 
 
 	<!--jQuery-->
-	<script src="js/jquery-3.1.1.min.js"></script>
+	<script src="{{url('js/jquery-3.1.1.min.js')}}"></script>
 
 	<!--Bootstrap .js-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
