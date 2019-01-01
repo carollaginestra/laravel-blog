@@ -32,3 +32,13 @@ Run the migrations to populate the database:
 ```sh
 $ php artisan migrate:refresh --seed
 ```
+
+run the project:
+```sh
+$ php artisan serve --port 8888
+```
+
+Verify the deployment by navigating to your server address in your preferred browser:
+```sh
+$ localhost:8888
+```
