@@ -1,9 +1,13 @@
 *{margin: 0px; padding: 0px;}
-body{font-family: "Open Sans";/* background: #f2f2f2; */}
+body{font-family: "Open Sans";/* background: #f2f2f2; */ font-size: 16px;}
 img{max-width: 100%;}
 
+p {
+    font-size: 1em;
+}
+
 .top{
-    background: #21A999;
+    background: #cfcfcf;
     padding: 40px 0px;
 }
 div.logo{
@@ -23,25 +27,27 @@ form.form{
 form.form-search input{
     border: none;
     padding: 4px 12px;
-    background: #3cd2c0;
+    background: #fff;
     border-top-left-radius: 6px !important;
     border-bottom-left-radius: 6px !important;
     height: 36px;
     float: left;
 }
 form.form-search button{
-    background: #f7921e;
+    background: #f7a842;
     color: #FFF;
     font-weight: bold;
     font-size: 1em;
-    padding: 6px 12px;
-    border: 2px solid #f7921e;
+    height: 36px;
+    width: 50px;
+    border: 0;
+    line-height: 1em;
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
 }
 
 .menu{
-    background: #219285;
+    background: #1152a1;
 }
 .menu a{
     color: #FFF;
@@ -73,7 +79,6 @@ img.img-slide-small{}
     color: #FFF;
     z-index: 2;
     padding: 10px;
-    text-transform: uppercase;
 }
 .img-big{position: relative;
     padding: 0px;
@@ -94,14 +99,30 @@ img.img-slide-small{}
     border-radius: 4px;
     box-shadow: 1px 1px 1px #e2cfcf;
     margin-bottom: 24px;
+    width: 100%;
+    max-width: 100%;
 }
 .image-post{
-    float: left;
+    width: 145px;
+    height: 145px;
+    max-width: 100%;
+    margin: auto;
+    margin-bottom: 15px;
 }
-img.img-post{
-    margin-bottom: 12px;
+
+@media only screen and (max-width: 768px) {
+    .image-post {
+        width: 100%;
+        height: auto;
+    }
 }
-.description-post{float: left;}
+
+.image-post img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
 .title-post{
     font-size: 1.4em;
     text-transform: uppercase;
@@ -132,8 +153,9 @@ footer.footer{
     float: left;
     width: 100%;
     padding: 10px;
-    background: #21A999;
+    background: #1152a1;
     text-align: center;
+    margin-top: 40px;
 }
 p.footer{
     font-size: .8em;
@@ -154,20 +176,14 @@ p.footer{
     color: #363636;
 }
 .sub-title{
-    font-size: 1.4em;
-    max-width: 700px;
+    font-size: 1.3em;
     margin: 12px auto;
     margin-bottom: 34px;
 }
 img.company{
     margin-bottom: 20px;
 }
-.text-company p{
-    font-size: 1em;
-}
-.text-company-esp{
-    font-weight: 800;
-}
+
 .contact{
     float: left;
     width: 100%;
@@ -210,9 +226,8 @@ div.title-category{
 h1.title-category{
     font-size: 1.4em;
     font-weight: 900;
-    text-transform: uppercase;
     margin: 0px;
-    color: #219285;
+    color: #8e8d8d;
     padding: 10px 0px;
 }
 .description-post-pg p{
@@ -278,4 +293,7 @@ img.user-comment-img{
     font-size: 1em;
     margin: 2px 0px;
     color: #363636;
+}
+.bold {
+    font-weight: 700;
 }

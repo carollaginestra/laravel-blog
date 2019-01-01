@@ -1,9 +1,13 @@
 form input{border-radius: 0px !important;}
 .navbar-toggle{background: #f7921e;}
 .icon-bar{background: #FFF;}
-.dropdown-menu{background: #21a999;}
+.dropdown-menu{background: #f7a842;}
 .dropdown-menu>li>a{color: #FFF !important;}
-.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{background: #21A999;}
+.nav .open>a, .nav .open>a:focus, .nav .open>a:hover{background: #f7a842;}
+
+.nav>li>a:focus, .nav>li>a:hover {
+    background: #f7a842;
+}
 
 /*Reset Pagination*/
 .pagination{
