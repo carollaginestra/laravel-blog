@@ -1,10 +1,10 @@
 <html>
 <head>
-<title>WebDevAlfa</title>
+    <title>WebDevAlfa - Blog</title>
 </head>
     <body>
-       <div class="container">
-       @yield('conteudo')
-       </div> 
+        <div class="container">
+        @yield('conteudo')
+        </div> 
     </body>
 </html>
