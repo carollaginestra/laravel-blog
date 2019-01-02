@@ -11,7 +11,6 @@
 
             {{-- {{ csrf_field() }} --}}
             <input type="text" name="pesquisa"  class="form-control">
-            {{-- <input type="text" name="email" placeholder="E-mail:" class="form-control"> --}}
 
             <button type="submit" class="btn btn-search">Pesquisar</button>
         </form>
@@ -25,15 +24,17 @@
     </div>
 
     <!-- Mensagens enviadas do  controller pela session success -->
-      @if( Session::has('success'))
-                <div class="col-md-12">
-                    <div class="alert alert-success alert-dismissible hide-msgd">
-                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                        <h4><i class="icon fa fa-warning"></i> {{Session::get('success')}}</h4>
+    @if( Session::has('success'))
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible hide-msgd">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-warning"></i> {{Session::get('success')}}</h4>
 
-                    </div>
                 </div>
-        @endif
+            </div>
+        </div>
+    @endif
     <!-- /. Mensagens enviadas do  controller pela session success -->
 
     <table class="table table-striped">
@@ -45,7 +46,7 @@
             <th>GitHub</th>
             <th width="150">Ações</th>
         </tr>
-        @forelse($users as $user)
+        @forelse($datas as $user)
             <tr>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
@@ -65,13 +66,13 @@
         @endforelse
     </table>
 
-    {{-- {{$users->links()}} --}}
+    {{-- {{$datas->links()}} --}}
 
     @if(isset($dataForm))
-    {{$users->appends(Request::only('pesquisa'))->links()}}
-        @else
-    {{$users->links()}}
-        @endif
+    {{$datas->appends(Request::only('pesquisa'))->links()}}
+    @else
+    {{$datas->links()}}
+    @endif
 
 </div><!--Content Dinâmico-->
 @endsection
