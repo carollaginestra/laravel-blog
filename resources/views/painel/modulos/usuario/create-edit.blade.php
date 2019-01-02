@@ -1,26 +1,27 @@
 @extends('painel.templates.dashboard')
 @section('conteudo')
 <div class="title-pg">
-    <h1 class="title-pg">Cadasro de Usuário</h1>
+    <h1 class="title-pg">Cadastro de Usuário</h1>
 </div>
 
 <div class="content-din">
 
-     <!-- Alert Errors start -->
-     @if( isset($errors) && count($errors) > 0 )
-     <div class="col-md-12">
-         <div class="alert alert-warning alert-dismissible">
-             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-             <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
-             @foreach( $errors->all() as $error)
-                 <p>{{$error}}</p>
-             @endforeach
-         </div>
-     </div>
-
- @endif
- <!-- /.Alert Errors start -->
- <!-- form start -->
+    <!-- Alert Errors start -->
+    @if( isset($errors) && count($errors) > 0 )
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-warning alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-warning"></i> Atenção!</h4>
+                    @foreach( $errors->all() as $error)
+                        <p>{{$error}}</p>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    @endif
+    <!-- /.Alert Errors start -->
+    <!-- form start -->
     @if(isset($data))
     <form 
     class="form form-search form-ds"  
