@@ -17,12 +17,12 @@
 
 					<p class="details-post">
 						<span>Autor: </span> {{ $post->user->name }} / <span>Data publicação</span>: 
-						<time datetime=""> {{ $key->date }} </time>	
+						<time datetime=""> {{ $post->date }} </time>	
 					</p>
 
 					<h2 class="title-post-pg">{{ $post->title }}</h2>
 					<p>
-						{{ $key->description }}
+						{{ $post->description }}
 					</p>
 
 				</div>
