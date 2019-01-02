@@ -5,21 +5,34 @@ namespace App\Http\Controllers\Site;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
+use App\Models\Post;
+use App\Models\Category;
+
 class SiteController extends Controller
 {
+
+    protected $model;
+    protected $totalpages = 5;
+
     public function index()
     {
-        return view ('site.index');
+        $datas = Post::where('status','Ativo')->paginate($this->totalpages);
+        return view ("site.index", compact('datas'));
     }
 
-    public function categoria()
+    public function post($id)
     {
-        return view ('site.pages.categoria');
-    }
+        $datas = Post::where('id',$id)->with('user','category')->get();
+        return view ('site.pages.post', compact('datas'));
+    }    
 
-    public function post()
+    public function categoria($id)
     {
-        return view ('site.pages.post');
+        $category_selected = Category::where('id', $id)->get();
+        $title = $category_selected[0]->name;
+        $datas = Post::where('category_id',$id)->where('status','Ativo')->with('category')->paginate($this->totalpages);
+
+        return view ('site.pages.categoria', compact('datas','title'));
     }
 
     public function empresa()
