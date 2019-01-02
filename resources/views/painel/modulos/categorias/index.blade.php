@@ -7,10 +7,8 @@
 <div class="content-din bg-white">
 
     <div class="form-search">
-        <form class="form form-inline"  method="get"
-            action="{{route('categorias.search')}}" enctype="multipart/form-data">
+        <form class="form form-inline"  method="get" action="{{route('categorias.search')}}" enctype="multipart/form-data">
 
-            {{-- {{ csrf_field() }} --}}
             <input type="text" name="pesquisa"  class="form-control">
 
             <button type="submit" class="btn btn-search">Pesquisar</button>
@@ -26,11 +24,13 @@
 
     <!-- Mensagens enviadas do  controller pela session success -->
     @if( Session::has('success'))
-        <div class="col-md-12">
-            <div class="alert alert-success alert-dismissible hide-msgd">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <h4><i class="icon fa fa-warning"></i> {{Session::get('success')}}</h4>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="alert alert-success alert-dismissible hide-msgd">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <h4><i class="icon fa fa-warning"></i> {{Session::get('success')}}</h4>
 
+                </div>
             </div>
         </div>
     @endif
@@ -39,37 +39,32 @@
     <table class="table table-striped">
         <tr>
             <th>Nome</th>
-            <th>URL</th>
+            <th>Descrição</th>
             <th width="150">Ações</th>
         </tr>
-        @forelse($data as $category)
+        @forelse($datas as $cat)
             <tr>
-                <td>{{$category->name}}</td>
-                <td>{{$category->url}}</td>
+                <td>{{$cat->name}}</td>
+                <td>{{ str_limit($cat->description, 100) }}</td>
                 <td>
-                    <a href="{{route('categorias.show', $category->id)}}"
-                        class="btn btn-info btn-xs">
-                        <i class="fa fa-eye"></i>
-                    </a>
-                    <a href="{{route('categorias.edit', $category->id)}}"
-                        class="btn btn-success btn-xs">
-                        <i class="fa fa-edit"></i>
-                    </a>
+                <a href="{{route('categorias.show', $cat->id)}}" class="btn btn-info btn-xs"><i class="fa fa-eye"></i></a>
+                <a href="{{route('categorias.edit', $cat->id)}}" class="btn btn-success btn-xs"><i class="fa fa-edit"></i></a>
+
                 </td>
             </tr>
             @empty
             <tr>
                 <td>Nenhum registro</td>
-            </tr>
+                </tr>
         @endforelse
     </table>
 
-    {{$data->links()}}
+    {{-- {{$datas->links()}} --}}
 
     @if(isset($dataForm))
-    {{$data->appends(Request::only('pesquisa'))->links()}}
+    {{$datas->appends(Request::only('pesquisa'))->links()}}
     @else
-    {{$data->links()}}
+    {{$datas->links()}}
     @endif
 
 </div><!--Content Dinâmico-->
